@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './profile.css';
+import './Profile.css';
 import SideNavbar from '../../Component/SideNavbar/sideNavbar';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import { Link, useParams } from 'react-router-dom';
