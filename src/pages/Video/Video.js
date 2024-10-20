@@ -67,7 +67,7 @@ const Video = () => {
                     <div className="youtube_video_ProfileBlock">
                         <div className="youtube_video_ProfileBlock_left">
                             <Link to={`/user/${data?.user?._id}`} className="youtube_video_ProfileBlock_left_img">
-                                <img className='youtube_video_ProfileBlock_left_image' src={data?.user?.profilePic} />
+                                <img className='youtube_video_ProfileBlock_left_image' src={data?.user?.profilePic} alt='logo'/>
                             </Link>
                             <div className="youtubeVideo_subsView">
                                 <div className="youtubePostProfileName"> {data?.user?.channelName} </div>

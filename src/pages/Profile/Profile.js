@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './Profile.css';
-import SideNavbar from '../../Component/SideNavbar/sideNavbar';
+import SideNavbar from '../../components/SideNavbar/SideNavBar';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -10,7 +10,7 @@ const Profile = ({ sideNavbar }) => {
     const [data, setData] = useState([]);
     const [user, setUser] = useState(null);
     const fetchProfileData = async () => {
-        {/* Please watch the video for the code} */}
+        // {/* Please watch the video for the code} */}
 
     }
     useEffect(() => {
