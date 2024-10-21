@@ -8,12 +8,13 @@ import VideoCallIcon from '@mui/icons-material/VideoCall';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import PersonIcon from '@mui/icons-material/Person';
 import { Link , useNavigate} from "react-router-dom";
+import Login  from "../Login/Login";
 
 function NavBar({setsideNavbarFun,sideNavbar}) {
 
   const [userPic, setuserPic] = useState("https://th.bing.com/th/id/OIP.Wy2uo_y-ttULYs4chLmqSAAAAA?rs=1&pid=ImgDetMain")
   const [navbarModal, setnavbarModal] = useState(false)
-
+  const [login, setlogin] = useState(false)
 
   const navigate = useNavigate();
 
@@ -30,6 +31,25 @@ function NavBar({setsideNavbarFun,sideNavbar}) {
     navigate('/user/23')
     setnavbarModal(false)
   } 
+
+
+  const setLoginModel = () =>{
+    setlogin(false)
+  }
+
+  const onClickPopUpOption =(button) => {
+
+    setnavbarModal(false)
+
+    if(button === "login")
+    { 
+      setlogin(true)
+    }else{
+
+    }
+  }
+
+
   return (
     <div className="navbar">
       <div className="navbar-left">
@@ -72,7 +92,8 @@ function NavBar({setsideNavbarFun,sideNavbar}) {
         </div>
       </div>
 
-      <div className="navbar-right">
+      <div className="navbar-right" >
+      <Link to={'/23/upload'}>
       <VideoCallIcon 
         sx={{
           fontSize:"30px",
@@ -80,6 +101,7 @@ function NavBar({setsideNavbarFun,sideNavbar}) {
           color:"white"
         }}
       />
+      </Link>
       <NotificationsIcon 
         sx={{
           fontSize:"30px",
@@ -93,11 +115,18 @@ function NavBar({setsideNavbarFun,sideNavbar}) {
       {navbarModal &&
       <div className="navbar-modal">
         <div className="navbar-modal-option" onClick={handleProfile}> Profile </div>
-        <div className="navbar-modal-option"> Logout </div>
-        <div className="navbar-modal-option"> Login </div>
+        <div className="navbar-modal-option" onClick={()=>{onClickPopUpOption("logout")}}> Logout </div>
+        <div className="navbar-modal-option" onClick={()=>{onClickPopUpOption("login")}}> Login </div>
       </div>
       }
       </div>
+
+
+
+      {
+        login && <Login/>
+      }
+
     </div>
   );
 }

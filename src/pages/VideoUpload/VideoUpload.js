@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import './videoUpload.css';
+import './VideoUpload.css';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import { Link,useNavigate } from 'react-router-dom';
 import axios from 'axios';
