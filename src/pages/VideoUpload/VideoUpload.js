@@ -5,11 +5,15 @@ import { Link,useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
+
 const VideoUpload = () => {
+
     const [inputField, setInputField] = useState({ "title": "", "description": "", "videoLink": "", "thumbnail": "", "videoType": "" })
     const [loader ,setLoader] = useState(false);
     const navigate = useNavigate()
+
     const handleOnChangeInput = (event, name) => {
+
         setInputField({
             ...inputField, [name]: event.target.value
         })
@@ -24,13 +28,18 @@ const VideoUpload = () => {
         // youtube-clone
         data.append('upload_preset', 'youtube-clone');
         try {
-            // cloudName="dhlklhfgj"
+             // cloudName="dkatbsarb"
             
-            // {/* Please watch the video for the code} */}
 
-
-
-
+             const response = await axios.post(`https://api.cloudinary.com/v1_1/dkatbsarb/${type}/upload`, data)
+             const Url = response.data.url;
+             setLoader(false)
+             let val = type==="image"?"thumbnail":"videoLink"
+             setInputField({
+                ...inputField,[val]:Url
+             })
+            
+             
         } catch (err) {
             setLoader(false)
             console.log(err)
@@ -45,6 +54,7 @@ const VideoUpload = () => {
             navigate('/')
         }
     },[])
+    
     console.log(inputField)
     const handleSubmitFunc = async()=>{
         // {/* Please watch the video for the code} */}
